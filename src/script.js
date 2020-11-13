@@ -2,9 +2,21 @@ const HOURHAND = document.querySelector("#hour");
 const MINUTEHAND = document.querySelector("#minute");
 const SECONDHAND = document.querySelector("#second");
 
-var hrPosition = 30;
-var minPosition = 140;
-var secPosition = 200;
+
+
+let date = new Date();
+
+console.log(date);
+
+let hr = date.getHours();
+let min = date.getMinutes();
+let sec = date.getSeconds(); 
+
+var hrPosition = (hr*360/12+(min*360/60)/12) ;
+var minPosition = (min*360/60+(sec*360/60)/60);
+var secPosition = sec*360/60;
+
+console.log("Hour:"+ hr +" Minutes:"+ min +" Seconds:"+ sec )
 
 HOURHAND.style.transform = "rotate(" + hrPosition + "deg)" ;
 MINUTEHAND.style.transform = "rotate(" + minPosition  +"deg)" ;
